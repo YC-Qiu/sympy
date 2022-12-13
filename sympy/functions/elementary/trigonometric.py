@@ -868,7 +868,7 @@ class cos(TrigonometricFunction):
 
     def _eval_rewrite_as_pow(self, arg, **kwargs):
         return self._eval_rewrite_as_sqrt(arg)
-    
+
     def _eval_rewrite_as_hyper(self, arg, **kwargs):
         from sympy.functions.special.hyper import hyper
         return hyper((), [1/2], -(arg**2)/4)
@@ -1336,7 +1336,7 @@ class tan(TrigonometricFunction):
         from sympy.functions.special.hyper import hyper
         return (8 * arg) * \
             hyper((1,1/2 - arg/pi, arg/pi + 1/2), [3/2 - arg/pi, arg/pi + 3/2], 1) / (pi**2 - 4*arg**2)
-    
+
     def _eval_rewrite_as_sqrt(self, arg, **kwargs):
         y = self.rewrite(cos).rewrite(sqrt)
         if y.has(cos):
@@ -1786,16 +1786,16 @@ class ReciprocalTrigonometricFunction(TrigonometricFunction):
 
     def _eval_rewrite_as_Pow(self, arg, **kwargs):
         return self._rewrite_reciprocal("_eval_rewrite_as_Pow", arg)
-    
+
     def _eval_rewrite_as_hyper(self, arg, **kwargs):
         return self._rewrite_reciprocal("_eval_rewrite_as_hyper", arg)
-    
+
     def _eval_rewrite_as_besselj(self, arg, **kwargs):
         return self._rewrite_reciprocal("_eval_rewrite_as_besselj", arg)
-    
+
     def _eval_rewrite_as_besseli(self, arg, **kwargs):
         return self._rewrite_reciprocal("_eval_rewrite_as_besseli", arg)
-    
+
     def _eval_rewrite_as_bessely(self, arg, **kwargs):
         return self._rewrite_reciprocal("_eval_rewrite_as_bessely", arg)
 
